@@ -1,0 +1,11 @@
+---
+services:
+  web:
+    build:
+      args:
+        APP_NAME: ${APP_NAME:-app}
+        NODE_VERSION: "${NODE_VERSION:-16}"
+        VARIANT: "${DEV_IMAGE_VARIANT:-3.8-bullseye}"
+      dockerfile: .devcontainer/Dockerfile
+    # Overrides default command so things don't shut down.
+    command: ["sleep infinity"]
