@@ -1,69 +1,18 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "2gua.rainbow-brackets",
-        "DavidAnson.vscode-markdownlint",
-        "GitHub.copilot",
-        "Tyriar.sort-lines",
-        "anseki.vscode-color",
-        "benjaminbenais.copilot-theme",
-        "blanu.vscode-styled-jsx",
-        "byCedric.vscode-expo",
-        "christian-kohler.path-intellisense",
-        "dbaeumer.vscode-eslint",
-        "dsznajder.es7-react-js-snippets",
-        "eamodio.gitlens",
-        "esbenp.prettier-vscode",
-        "hogashi.crontab-syntax-highlight",
-        "mgmcdermott.vscode-language-babel",
-        "mikestead.dotenv",
-        "ms-python.pylint",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-toolsai.jupyter",
-        "ms-toolsai.jupyter-keymap",
-        "ms-toolsai.jupyter-renderers",
-        "ms-vscode-remote.remote-containers",
-        "ms-vscode-remote.remote-ssh",
-        "ms-vscode-remote.remote-ssh-edit",
-        "msjsdiag.vscode-react-native",
-        "naumovs.color-highlight",
-        "oderwat.indent-rainbow",
-        "redhat.vscode-yaml",
-        "richie5um2.vscode-sort-json",
-        "sourcery.sourcery"
-      ],
-      "settings": {
-        "editor.codeActionsOnSave": {
-          "source.organizeImports": true
-        },
-        "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "file",
-        "editor.rulers": [88],
-        "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
-        "makefile.extensionOutputFolder": "./.vscode",
-        "python.analysis.diagnosticSeverityOverrides": {
-          "reportGeneralTypeIssues": "none"
-        },
-        "python.analysis.typeCheckingMode": "basic",
-        "python.formatting.provider": "black",
-        "python.linting.enabled": true,
-        "python.linting.ignorePatterns": ["/migrations/**", "/notes/**"],
-        "python.linting.pylintArgs": ["--disable=missing-docstring"],
-        "python.linting.pylintEnabled": true,
-        "workbench.colorCustomizations": {
-          "titleBar.activeBackground": "#FFFDD0",
-          "titleBar.activeForeground": "#000000"
-        },
-        "yaml.format.enable": false
-      }
-    }
-  },
-  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
-  "postCreateCommand": "postCreate.sh",
-  "remoteUser": "vscode",
-  "service": "web",
-  "waitFor": "postCreateCommand",
-  "workspaceFolder": "/${localEnv:APP_NAME}"
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {"version": "18"},
+		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
+	},
+
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install watchman"
+
+	// Configure tool-specific properties.
+	// "customizations": {},
 }
