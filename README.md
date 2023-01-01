@@ -1,6 +1,6 @@
 # Automata Frontend
 
-> Personal scripts for automation of everyday tasks
+> Frontend using expo with React native
 > using best practices with reference notes.
 
 [![codecov](https://codecov.io/gh/maferelo/automata-backend/branch/develop/graph/badge.svg?token=GWW6DXXDZO)](https://codecov.io/gh/maferelo/automata-backend)
