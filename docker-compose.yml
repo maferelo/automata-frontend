@@ -20,4 +20,10 @@ services:
       dockerfile: .devcontainer/Dockerfile
     command: sleep infinity
     volumes:
-      - .:/app
+      - .:/app:cache
+      - ~/.bash_history:/home/vscode/.bash_history:cache
+      - extensions-cache:/home/vscode/.vscode-server/extensions:cache
+
+volumes:
+  home-cache:
+  extensions-cache:
