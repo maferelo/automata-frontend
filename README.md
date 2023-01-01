@@ -76,7 +76,6 @@ Using [Heroku](https://python-poetry.org/) Create staging and production apps
 
 ```
 
-
 ## References
 
 - [Project homepage](https://your.github.com/automata/)

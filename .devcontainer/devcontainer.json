@@ -1,18 +1,18 @@
 // devcontainer.json reference: https://containers.dev/implementors/json_reference/
 {
-	"customizations": {
-		"vscode": {
-			"settings": {
-				"workbench.colorCustomizations": {
-					"titleBar.activeBackground": "#00FFFF",
-					"titleBar.activeForeground": "#000000"
-				},
-				"window.title": "${localWorkspaceFolderBasename}${separator}${activeEditorShort}"
-			}
-		}
-	},
-	"dockerComposeFile": "../docker-compose.yml",
-	"postCreateCommand": "pre-commit install",
-    "service": "web",
-    "workspaceFolder": "/app"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.colorCustomizations": {
+          "titleBar.activeBackground": "#00FFFF",
+          "titleBar.activeForeground": "#000000"
+        },
+        "window.title": "${localWorkspaceFolderBasename}${separator}${activeEditorShort}"
+      }
+    }
+  },
+  "dockerComposeFile": "../docker-compose.yml",
+  "postCreateCommand": "pre-commit install",
+  "service": "web",
+  "workspaceFolder": "/app"
 }
