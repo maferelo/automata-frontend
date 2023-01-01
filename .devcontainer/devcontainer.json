@@ -12,6 +12,7 @@
 		}
 	},
 	"dockerComposeFile": "../docker-compose.yml",
+	"postCreateCommand": "pre-commit install",
     "service": "web",
     "workspaceFolder": "/app"
 }
