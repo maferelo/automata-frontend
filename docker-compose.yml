@@ -1,0 +1,23 @@
+---
+x-app: &default-app
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: ${DOCKER_RESTART_POLICY:-unless-stopped}
+
+version: '3.8'
+services:
+  web:
+    <<: *default-app
+    build:
+      args:
+        # Available tags: https://mcr.microsoft.com/v2/vscode/devcontainers/base/tags/list
+        IMAGE_VARIANT: ${DEV_CONTAINER_IMAGE_VARIANT:-1.0.2-ubuntu-22.04}
+        # Node version: https://github.com/nodesource/distributions/blob/master/README.md
+        NODE_VERSION: ${DEV_CONTAINER_NODE:-18}
+        PRE_COMMIT_VERSION: ${DEV_CONTAINER_PRE_COMMIT_VERSION:-2.17.0-1}
+        WATCHMAN_VERSION: ${DEV_CONTAINER_WATCHMAN_VERSION:-4.9.0-6build2}
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    volumes:
+      - .:/app

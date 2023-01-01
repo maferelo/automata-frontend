@@ -1,18 +1,17 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+// devcontainer.json reference: https://containers.dev/implementors/json_reference/
 {
-	"name": "Ubuntu",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-		"ghcr.io/devcontainers/features/node:1": {"version": "18"},
-		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"workbench.colorCustomizations": {
+					"titleBar.activeBackground": "#00FFFF",
+					"titleBar.activeForeground": "#000000"
+				},
+				"window.title": "${localWorkspaceFolderBasename}${separator}${activeEditorShort}"
+			}
+		}
 	},
-
-	"postCreateCommand": "sudo apt-get update && sudo apt-get install watchman"
-
-	// Configure tool-specific properties.
-	// "customizations": {},
+	"dockerComposeFile": "../docker-compose.yml",
+    "service": "web",
+    "workspaceFolder": "/app"
 }
