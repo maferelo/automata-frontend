@@ -22,6 +22,12 @@ RUN \
         pre-commit=${PRE_COMMIT_VERSION} \
         watchman=${WATCHMAN_VERSION}
 
+RUN \
+    mkdir -p \
+    /home/vscode/.vscode-server/extensions \
+    /home/vscode/.cache/pre-commit; \
+    chown -R vscode:vscode /home/vscode
+
 WORKDIR /app
 
 USER vscode
