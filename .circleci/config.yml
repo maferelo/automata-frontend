@@ -32,7 +32,7 @@ jobs:
               -{{ checksum ".pre-commit-config.yaml" }}
       - run:
           name: Install pre-commit
-          command: apt-get install --no-install-recommends -y pre-commit=2.17.0-1
+          command: sudo apt-get install --no-install-recommends -y pre-commit=2.17.0-1
       - save_cache:
           paths:
             - ~/.cache/pre-commit
