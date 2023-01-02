@@ -24,6 +24,19 @@ jobs:
     executor: node-executor
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - >-
+              lint-cache
+              -v<< pipeline.parameters.cache-version >>
+              -{{ checksum ".pre-commit-config.yaml" }}
+      - save_cache:
+          paths:
+            - ~/.cache/pre-commit
+          key: >-
+            lint-cache
+            -v<< pipeline.parameters.cache-version >>
+            -{{ checksum ".pre-commit-config.yaml" }}
       - run: node --version
 
 # Invoke jobs via workflows
