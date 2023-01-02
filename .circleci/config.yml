@@ -34,7 +34,7 @@ jobs:
           name: Install pre-commit
           command: |
             sudo apt-get update
-            sudo apt-get install --no-install-recommends -y pre-commit=2.17.0-1
+            sudo apt-get install --no-install-recommends -y pre-commit
       - save_cache:
           paths:
             - ~/.cache/pre-commit
