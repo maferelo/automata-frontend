@@ -11,7 +11,7 @@ parameters:
     default: 1
   image-tag:
     type: string
-    default: 18.2.1
+    default: 18.2.0
 
 # See: https://circleci.com/developer/images/image/cimg/node
 executors:
