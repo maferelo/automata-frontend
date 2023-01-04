@@ -39,14 +39,20 @@ jobs:
               -v<< pipeline.parameters.cache-version >>
               -{{ checksum ".pre-commit-config.yaml" }}
       - run:
+          name: Update
+          command: sudo apt-get install python3-pip
+      - run:
+          name: Install pip
+          command: sudo apt-get install python3-pip
+      - run:
           name: Install pre-commit
-          command: |-
-            sudo apt-get update
-            sudo apt-get install python3-pip
-            pip install pre-commit
-            pre-commit install-hooks
+          command: pip install pre-commit
+      - run:
+          name: Install pre-commit hooks
+          command: pre-commit install-hooks
       - save_cache:
           paths:
+            - /usr/lib/python3
             - ~/.cache/pip
             - ~/.cache/pre-commit
           key: >-
