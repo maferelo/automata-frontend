@@ -1,7 +1,7 @@
 version: 2.1
 
 
-# See: https://circleci.com/docs/2.0/orb-intro/
+# Node orb: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   node: circleci/node@4.7
 
@@ -13,7 +13,7 @@ parameters:
     type: string
     default: 18.2.0
 
-# See: https://circleci.com/developer/images/image/cimg/node
+# Node image: https://circleci.com/developer/images/image/cimg/node
 executors:
   node-executor:
     docker:
@@ -36,6 +36,7 @@ jobs:
             sudo apt-get update
             sudo apt-get install --no-install-recommends -y python3-pip
             pip install pre-commit==2.21.0
+            pre-commit install-hooks
       - save_cache:
           paths:
             - ~/.cache/pre-commit
