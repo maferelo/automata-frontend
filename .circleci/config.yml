@@ -41,10 +41,6 @@ jobs:
       - run:
           name: Install pre-commit
           command: |-
-            python3
-            sudo apt-get update 
-            sudo apt-get install --no-install-recommends -y \
-              python3-pip;
             pip install pre-commit;
             pre-commit install-hooks
       - save_cache:
