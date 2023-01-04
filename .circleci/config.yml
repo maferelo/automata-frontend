@@ -14,9 +14,9 @@ parameters:
   cache-version:
     type: integer
     default: 4
-  node-image-tag:
+  ubuntu-image-tag:
     type: string
-    default: 18.2.0
+    default: "2023.01"
   pre-commit-version:
     type: string
     default: 2.21.0
@@ -25,7 +25,7 @@ parameters:
 executors:
   node-executor:
     docker:
-      - image: cimg/node:<< pipeline.parameters.node-image-tag >>
+      - image: cimg/base:<< pipeline.parameters.ubuntu-image-tag >>
 
 jobs:
   pre-commit:
