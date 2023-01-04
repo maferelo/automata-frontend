@@ -41,8 +41,8 @@ jobs:
       - run:
           name: Install pre-commit
           command: |-
-            python -m ensurepip --upgrade
-            pip3 install pre-commit
+            python3 -m ensurepip --upgrade
+            pip install pre-commit
             pre-commit install-hooks
       - save_cache:
           paths:
