@@ -52,9 +52,6 @@ jobs:
           command: pre-commit install-hooks
       - save_cache:
           paths:
-            - /var/cache/apt/archives
-            - /var/lib/apt/lists
-            - /usr/lib/python3
             - ~/.cache/pip
             - ~/.cache/pre-commit
           key: >-
