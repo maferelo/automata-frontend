@@ -39,8 +39,8 @@ jobs:
               -v<< pipeline.parameters.cache-version >>
               -{{ checksum ".pre-commit-config.yaml" }}
       - run:
-          name: Update
-          command: sudo apt-get install python3-pip
+          name: Update apt-get packages
+          command: sudo apt-get update
       - run:
           name: Install pip
           command: sudo apt-get install python3-pip
