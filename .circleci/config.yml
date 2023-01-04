@@ -1,3 +1,7 @@
+---
+# .circleci/.config.yml reference: https://circleci.com/docs/configuration-reference/
+# YAML 1.2 spec: https://yaml.org/spec/1.2-old/spec.html
+# Reusable config: https://circleci.com/docs/reusing-config/
 version: 2.1
 
 
@@ -35,7 +39,7 @@ jobs:
               -{{ checksum ".pre-commit-config.yaml" }}
       - run:
           name: Install pre-commit
-          command: |
+          command: |-
             sudo apt-get update 
             sudo apt-get install --no-install-recommends -y \
               python3-pip;
