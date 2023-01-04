@@ -35,8 +35,8 @@ jobs:
               -{{ checksum ".pre-commit-config.yaml" }}
       - run:
           name: Install pre-commit
-          command: >
-            sudo apt-get update;\
+          command: |
+            sudo apt-get update 
             sudo apt-get install --no-install-recommends -y \
               python3-pip;
             pip install pre-commit;
