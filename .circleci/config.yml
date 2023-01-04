@@ -2,6 +2,7 @@
 # .circleci/.config.yml reference: https://circleci.com/docs/configuration-reference/
 # YAML 1.2 spec: https://yaml.org/spec/1.2-old/spec.html
 # Reusable config: https://circleci.com/docs/reusing-config/
+# Multiline comnads: https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines
 version: 2.1
 
 
