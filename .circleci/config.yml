@@ -14,12 +14,15 @@ parameters:
   cache-version:
     type: integer
     default: 4
-  ubuntu-image-tag:
-    type: string
-    default: "2023.01"
   pre-commit-version:
     type: string
     default: 2.21.0
+  python3-pip:
+    type: string
+    default: 22.0.2+dfsg-1
+  ubuntu-image-tag:
+    type: string
+    default: "2023.01"
 
 # Node image: https://circleci.com/developer/images/image/cimg/node
 executors:
@@ -43,7 +46,7 @@ jobs:
           command: sudo apt-get update
       - run:
           name: Install pip
-          command: sudo apt-get install python3-pip=22.0.2+dfsg-1
+          command: sudo apt-get install python3-pip=<< pipeline.parameters.python3-pip >>
       - run:
           name: Install pre-commit
           command: pip install pre-commit==<< pipeline.parameters.pre-commit-version >>
