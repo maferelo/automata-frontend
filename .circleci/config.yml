@@ -43,7 +43,7 @@ jobs:
           command: sudo apt-get update
       - run:
           name: Install pip
-          command: sudo apt-get install python3-pip
+          command: sudo apt-get install python3-pip=22.0.2+dfsg-1
       - run:
           name: Install pre-commit
           command: pip install pre-commit==<< pipeline.parameters.pre-commit-version >>
