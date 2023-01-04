@@ -58,6 +58,7 @@ jobs:
             lint-cache
             -v<< pipeline.parameters.cache-version >>
             -{{ checksum ".pre-commit-config.yaml" }}
+      - run: apt-cache show python3-pip
       - run:
           name: Run pre-commit
           command: pre-commit run --all
