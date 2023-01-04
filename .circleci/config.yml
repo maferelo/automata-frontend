@@ -8,7 +8,7 @@ orbs:
 parameters:
   cache-version:
     type: integer
-    default: 1
+    default: 2
   image-tag:
     type: string
     default: 18.2.0
@@ -44,7 +44,9 @@ jobs:
             lint-cache
             -v<< pipeline.parameters.cache-version >>
             -{{ checksum ".pre-commit-config.yaml" }}
-      - run: pre-commit --version
+      - run:
+          name: Run pre-commit
+          command: pre-commit run --all
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
