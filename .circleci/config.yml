@@ -35,6 +35,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install --no-install-recommends -y python3-pip
+            pip install pre-commit
       - save_cache:
           paths:
             - ~/.cache/pre-commit
