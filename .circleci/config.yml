@@ -48,16 +48,18 @@ jobs:
             pre-commit install-hooks
       - save_cache:
           paths:
+            - ~/.cache/pip
             - ~/.cache/pre-commit
           key: >-
             lint-cache
             -v<< pipeline.parameters.cache-version >>
             -{{ checksum ".pre-commit-config.yaml" }}
+      - run: which python3
+      - run: which pip
       - run:
           name: Run pre-commit
           command: pre-commit run --all
-      - run: which python3
-      - run: which pip
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
