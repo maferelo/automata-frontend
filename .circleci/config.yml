@@ -13,7 +13,7 @@ orbs:
 parameters:
   cache-version:
     type: integer
-    default: 4
+    default: 5
   pre-commit-version:
     type: string
     default: 2.21.0
