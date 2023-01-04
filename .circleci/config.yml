@@ -24,7 +24,7 @@ parameters:
     type: string
     default: "2023.01"
 
-# Node image: https://circleci.com/developer/images/image/cimg/node
+# Node image: https://circleci.com/developer/images/image/cimg/base
 executors:
   node-executor:
     docker:
@@ -65,10 +65,6 @@ jobs:
       - run:
           name: Run pre-commit
           command: pre-commit run --all
-
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   lint-and-test:
     jobs:
