@@ -9,15 +9,18 @@ parameters:
   cache-version:
     type: integer
     default: 2
-  image-tag:
+  node-image-tag:
     type: string
     default: 18.2.0
+  pre-commit-version:
+    type: string
+    default: 2.21.0
 
 # Node image: https://circleci.com/developer/images/image/cimg/node
 executors:
   node-executor:
     docker:
-      - image: cimg/node:<< pipeline.parameters.image-tag >>
+      - image: cimg/node:<< pipeline.parameters.node-image-tag >>
 
 jobs:
   pre-commit:
@@ -32,10 +35,11 @@ jobs:
               -{{ checksum ".pre-commit-config.yaml" }}
       - run:
           name: Install pre-commit
-          command: |
-            sudo apt-get update
-            sudo apt-get install --no-install-recommends -y python3-pip
-            pip install pre-commit==2.21.0
+          command: >-
+            sudo apt-get update; \
+            sudo apt-get install --no-install-recommends -y \
+              python3-pip; \
+            pip install pre-commit; \
             pre-commit install-hooks
       - save_cache:
           paths:
@@ -47,6 +51,8 @@ jobs:
       - run:
           name: Run pre-commit
           command: pre-commit run --all
+      - run: which python3
+      - run: which pip
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
