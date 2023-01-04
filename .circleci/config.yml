@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Install pre-commit
           command: |-
-            pip install pre-commit;
+            pip3 install pre-commit;
             pre-commit install-hooks
       - save_cache:
           paths:
