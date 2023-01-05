@@ -37,7 +37,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: docker compose build
-      - run: docker compose run web npx --version
+      - run: docker compose run web /home/vscode/.local/bin/pre-commit --version
   pre-commit:
     executor: node-executor
     steps:
