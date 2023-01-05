@@ -27,6 +27,7 @@ jobs:
     steps:
       - checkout
       - run: docker compose build
+      - run: less /etc/passwd
       - run: docker compose run web /bin/bash -c "git config --global --add safe.directory /app && /home/vscode/.local/bin/pre-commit run -a" 
 workflows:
   lint-and-test:
