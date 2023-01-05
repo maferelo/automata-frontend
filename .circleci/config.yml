@@ -29,7 +29,7 @@ jobs:
       - run: docker compose build
       - run: docker compose run web cat /etc/passwd
       - run: docker compose run web ls -al
-      - run: docker compose run web /bin/bash -c "git config --global --add safe.directory /app && /home/vscode/.local/bin/pre-commit run -a" 
+      - run: docker compose run web /bin/bash -c "chown -R vscode:vscode . && git config --global --add safe.directory /app && /home/vscode/.local/bin/pre-commit run -a" 
 workflows:
   lint-and-test:
     jobs:
