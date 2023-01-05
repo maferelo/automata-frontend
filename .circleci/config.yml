@@ -28,7 +28,7 @@ jobs:
       - checkout
       - run: docker compose build
       - run: ls -al
-      - run: docker compose run web /bin/bash -c "pwd && whoami && ls -al && git status && /home/vscode/.local/bin/pre-commit run -a" 
+      - run: docker compose run web /bin/bash -c "pwd && whoami && ls -al && /home/vscode/.local/bin/pre-commit run -a" 
 workflows:
   lint-and-test:
     jobs:
