@@ -1,3 +1,4 @@
+# Lint: https://hadolint.github.io/hadolint/
 ARG IMAGE_VARIANT
 ARG NODE_VERSION
 ARG NVM_VERSION
