@@ -24,7 +24,6 @@ services:
         WATCHMAN_VERSION: ${DEV_CONTAINER_WATCHMAN_VERSION:-4.9.0-6build2}
       dockerfile: .devcontainer/Dockerfile
     command: sleep infinity
-    user: "1000:1000"
     volumes:
-      - .:/app:cache
+      - .:/app:cache:rw
       - ~/.bash_history:/home/vscode/.bash_history:cache
