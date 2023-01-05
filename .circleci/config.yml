@@ -39,6 +39,7 @@ jobs:
       - run: docker compose build
       - run: docker compose run web /home/vscode/.local/bin/pre-commit --version
       - run: docker compose run web pwd
+      - run: docker compose run web /home/vscode/.local/bin/pre-commit run -a
   pre-commit:
     executor: node-executor
     steps:
