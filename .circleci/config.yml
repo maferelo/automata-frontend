@@ -28,7 +28,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: docker compose build
-      - run: docker compose run -v .:/app:cache web /bin/bash -c "pwd && whoami && ls -al && /home/vscode/.local/bin/pre-commit run -a" 
+      - run: docker compose run -v .:/app:cache web /bin/bash -c "pwd && whoami && ls -al && git status && /home/vscode/.local/bin/pre-commit run -a" 
 workflows:
   lint-and-test:
     jobs:
