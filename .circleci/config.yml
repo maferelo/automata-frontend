@@ -28,7 +28,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: docker compose build
-      - run: docker compose run web /bin/bash -c "ls -al && /home/vscode/.local/bin/pre-commit run -a" 
+      - run: docker compose run web /bin/bash -c "git init . && ls -al && /home/vscode/.local/bin/pre-commit run -a" 
 workflows:
   lint-and-test:
     jobs:
