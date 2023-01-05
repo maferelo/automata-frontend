@@ -38,6 +38,7 @@ jobs:
           docker_layer_caching: true
       - run: docker compose build
       - run: docker compose run web /home/vscode/.local/bin/pre-commit --version
+      - run: docker compose run web pwd
   pre-commit:
     executor: node-executor
     steps:
