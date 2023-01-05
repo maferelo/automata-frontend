@@ -27,8 +27,9 @@ jobs:
     steps:
       - checkout
       - run: docker compose build
-#      - run: docker compose run web /bin/bash -c "sudo chown -R vscode:vscode . && ~/.local/bin/pre-commit run -a" 
-      - run: docker compose run web /bin/bash -c "sudo chown -R vscode:vscode . && pre-commit run -a" 
+      - run: >-
+        docker compose run web /bin/bash 
+        -c "sudo chown -R vscode:vscode . && ~/.local/bin/pre-commit run -a"
 workflows:
   lint-and-test:
     jobs:
