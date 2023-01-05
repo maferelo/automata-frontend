@@ -25,5 +25,5 @@ services:
       dockerfile: .devcontainer/Dockerfile
     command: sleep infinity
     volumes:
-      - .:/app:cache:rw
+      - .:/app:rw
       - ~/.bash_history:/home/vscode/.bash_history:cache
