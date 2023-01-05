@@ -38,7 +38,9 @@ jobs:
           docker_layer_caching: true
       - run: docker compose build
       - run: docker compose run web git init .
-      - run: docker compose run web /home/vscode/.local/bin/pre-commit run -a
+      - run: >-
+          docker compose run -w /app web 
+          /bin/bash -c "ls -al && /home/vscode/.local/bin/pre-commit run -a" 
   pre-commit:
     executor: node-executor
     steps:
