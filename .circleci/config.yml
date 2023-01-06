@@ -5,20 +5,11 @@
 # Multiline comnads: https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines
 version: 2.1
 
-# Node orb: https://circleci.com/docs/2.0/orb-intro/
-orbs:
-  node: circleci/node@4.7
-
-parameters:
-  ubuntu-image-tag:
-    type: string
-    default: 2022.10.2
-
 # Image: https://circleci.com/developer/machine/image/ubuntu-2204
 executors:
   ubuntu-executor:
     machine:
-      image: ubuntu-2204:<< pipeline.parameters.ubuntu-image-tag >>
+      image: ubuntu-2204:2022.10.2
       docker_layer_caching: true
 
 jobs:
@@ -71,3 +62,4 @@ workflows:
           requires: [build]
       - test:
           requires: [build]
+# VS Code Extension Version: 1.5.1
