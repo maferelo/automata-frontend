@@ -49,10 +49,6 @@ jobs:
       - run: 
           name: Load Docker image
           command: docker load -i workspace/project-web.tar
-      - run: docker images
-      - run: 
-          name: Build Docker image
-          command: docker compose build
       - run: 
           name: Run pre-commit
           command: >-
