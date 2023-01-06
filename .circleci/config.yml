@@ -44,7 +44,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /home/circleci/project/workspace
+          at: ./workspace
       - run: ls -al 
       - run: 
           name: Load Docker image
