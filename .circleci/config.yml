@@ -25,16 +25,12 @@ jobs:
   build:
     executor: ubuntu-executor
     steps:
-      - checkout
       - run:
           name: Create workspace directory
           command: mkdir -p workspace
       - run:
-          name: Build Docker image
-          command: docker compose build
-      - run:
-          name: Save image
-          command: docker save -o workspace/project-web.tar project-web
+          name: Save workspace files
+          command: touch workspace/project-web.tar
       - persist_to_workspace:
           root: workspace
           paths:
@@ -44,11 +40,21 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /home/circleci/project/workspace
+          at: ./workspace
       - run:
-          name: Load Docker image
-          command: docker load -i workspace/project-web.tat
-      - command: docker images
+          name: Build Docker image
+          command: docker compose build
+      - run:
+          name: Run pre-commit
+          command: >-
+            docker compose run web /bin/bash
+            -c "sudo chown -R vscode:vscode . && ~/.local/bin/pre-commit run -a"
+  test:
+    executor: ubuntu-executor
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./workspace
       - run:
           name: Build Docker image
           command: docker compose build
@@ -64,5 +70,8 @@ workflows:
           context:
             - context
       - pre-commit:
+          requires:
+            - build
+      - test:
           requires:
             - build
