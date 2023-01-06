@@ -33,8 +33,8 @@ jobs:
           name: Build Docker image
           command: docker compose build
       - run: 
-          name: Save image
-          command: docker save -o workspace/project-web.tar project-web
+          name: Save workspace files
+          command: touch workspace/project-web.tar
       - persist_to_workspace:
           root: workspace
           paths:
@@ -45,10 +45,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: ./workspace
-      - run: ls -al workspace
       - run: 
-          name: Load Docker image
-          command: docker load -i workspace/project-web.tar
+          name: Build Docker image
+          command: docker compose build
       - run: 
           name: Run pre-commit
           command: >-
