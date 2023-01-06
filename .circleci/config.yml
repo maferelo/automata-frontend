@@ -20,17 +20,34 @@ executors:
     machine:
       image: ubuntu-2204:<< pipeline.parameters.ubuntu-image-tag >>
       docker_layer_caching: true
+    working_directory: /tmp
 
 jobs:
   build:
     executor: ubuntu-executor
     steps:
+      - run: mkdir -p workspace
       - checkout
-      - run: docker compose build
-      - run:
+      - run: 
+          name: Build Docker image
+          command: docker compose build
+      - run: docker save -o workspace/web.tar web
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - web.tar
+  pre-commit:
+    executor: ubuntu-executor
+    steps:
+      - run: mkdir -p workspace
+      - checkout
+      - run: 
+          name: Build Docker image
+          command: docker compose build
+      - run: 
           name: Run pre-commit
           command: >-
-            docker compose run web /bin/bash
+            docker compose run web /bin/bash 
             -c "sudo chown -R vscode:vscode . && ~/.local/bin/pre-commit run -a"
 workflows:
   lint-and-test:
@@ -38,3 +55,6 @@ workflows:
       - build:
           context:
             - context
+      - pre-commit:
+          requires:
+            - build
