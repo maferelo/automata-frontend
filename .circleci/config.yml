@@ -27,6 +27,9 @@ jobs:
     steps:
       - checkout
       - run: 
+          name: Create workspace folder
+          command: mkdir -p workspace
+      - run: 
           name: Build Docker image
           command: docker compose build
       - run: 
