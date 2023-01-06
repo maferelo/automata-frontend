@@ -27,7 +27,7 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Create workspace folder
+          name: Create workspace directory
           command: mkdir -p workspace
       - run: 
           name: Build Docker image
@@ -45,6 +45,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: /home/circleci/project/workspace
+      - run: 
+          name: Load Docker image
+          command: docker load -i workspace/project-web.tat
+      - command: docker images
       - run: 
           name: Build Docker image
           command: docker compose build
