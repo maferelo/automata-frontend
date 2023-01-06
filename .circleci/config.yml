@@ -45,10 +45,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: ./workspace
-      - run: ls -al 
+      - run: ls -al workspace
       - run: 
           name: Load Docker image
-          command: docker load -i workspace/project-web.tat
+          command: docker load -i ./workspace/project-web.tat
       - run: docker images
       - run: 
           name: Build Docker image
