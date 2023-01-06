@@ -33,8 +33,7 @@ jobs:
           command: touch workspace/project-web.tar
       - persist_to_workspace:
           root: workspace
-          paths:
-            - project-web.tar
+          paths: [project-web.tar]
   pre-commit:
     executor: ubuntu-executor
     steps:
@@ -67,11 +66,8 @@ workflows:
   lint-and-test:
     jobs:
       - build:
-          context:
-            - context
+          context: [context]
       - pre-commit:
-          requires:
-            - build
+          requires: [build]
       - test:
-          requires:
-            - build
+          requires: [build]
