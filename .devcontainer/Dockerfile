@@ -58,8 +58,10 @@ RUN \
 USER vscode
 
 RUN \
-    mkdir -p ~/.cache
-
+    mkdir -p \
+        ~/.cache \
+        ~/.vscode-server/extensions \
+    ;
 # Install nvm
 RUN \
     --mount=type=cache,target=/home/vscode/.cache/build.nvm,uid=1000,gid=1000 \

@@ -2,6 +2,33 @@
 {
   "customizations": {
     "vscode": {
+      "extensions": [
+        "aaron-bond.better-comments",
+        "burkeholland.simple-react-snippets",
+        "byCedric.vscode-expo",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "CircleCI.circleci",
+        "DavidAnson.vscode-markdownlint",
+        "dbaeumer.vscode-eslint",
+        "donjayamanne.githistory",
+        "dsznajder.es7-react-js-snippets",
+        "dzhavat.bracket-pair-toggler",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "exiasr.hadolint",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "GitHub.copilot",
+        "ivangabriele.vscode-heroku",
+        "ms-azuretools.vscode-docker",
+        "msjsdiag.vscode-react-native",
+        "rvest.vs-code-prettier-eslint",
+        "steoates.autoimport",
+        "Tyriar.lorem-ipsum",
+        "wix.vscode-import-cost",
+        "xabikos.javascriptsnippets"
+      ],
       "settings": {
         "workbench.colorCustomizations": {
           "titleBar.activeBackground": "#00FFFF",
