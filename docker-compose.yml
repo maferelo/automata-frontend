@@ -10,12 +10,14 @@ services:
     <<: *default-app
     build:
       args:
+        # HADOLINT_VERSION: https://github.com/hadolint/hadolint/releases
         # IMAGE_VARIANT: https://mcr.microsoft.com/v2/vscode/devcontainers/base/tags/list
         # NODE_VERSION: https://github.com/nodesource/distributions/blob/master/README.md
         # NVM_VERSION: https://github.com/nvm-sh/nvm
         # PRE_COMMIT_VERSION: https://pypi.org/project/pre-commit/
         # PYTHON3_PIP_VERSION: https://packages.ubuntu.com/search?keywords=python3-pip
         # WATCHMAN_VERSION: https://packages.ubuntu.com/search?keywords=watchman
+        HADOLINT_VERSION: ${DEV_CONTAINER_HADOLINT_VERSION:-2.12.0}
         IMAGE_VARIANT: ${DEV_CONTAINER_IMAGE_VARIANT:-1.0.2-ubuntu-22.04}
         NODE_VERSION: ${DEV_CONTAINER_NODE:-18.2.0}
         NVM_VERSION: ${DEV_CONTAINER_NVM_VERSION:-0.39.3}

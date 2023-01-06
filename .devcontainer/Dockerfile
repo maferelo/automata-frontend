@@ -1,4 +1,6 @@
+# hadolint global ignore=DL3009,DL3042,DL3060,SC1091
 # Lint: https://hadolint.github.io/hadolint/
+ARG HADOLINT_VERSION
 ARG IMAGE_VARIANT
 ARG NODE_VERSION
 ARG NVM_VERSION
@@ -11,6 +13,7 @@ ARG YARN_VERSION
 # https://github.com/microsoft/vscode-dev-containers/tree/main/containers/ubuntu
 FROM mcr.microsoft.com/devcontainers/base:${IMAGE_VARIANT}
 
+ARG HADOLINT_VERSION
 ARG NODE_VERSION
 ARG NVM_VERSION
 ARG PRE_COMMIT_VERSION
@@ -34,27 +37,22 @@ RUN \
 RUN \
     --mount=type=cache,target=/root/.cache/build.update \
     cp -nRT ~/.cache/build.update /var/lib/apt/lists/; \
-    apt-get update > ~/update.log 2>&1; \
+    apt-get update 2>&1 | tee ~/update.log; \
     cp -fnRT /var/lib/apt/lists/ ~/.cache/build.update
 
-# Install python3-pip
+# Install hadolint heroku python3-pip watchman
 RUN \
     --mount=type=cache,target=/root/.cache/build.apt-get \
     cp -nRT ~/.cache/build.apt-get /var/cache/apt/archive/; \
     export DEBIAN_FRONTEND=noninteractive; \
     apt-get install --no-install-recommends -y \
         python3-pip=${PYTHON3_PIP_VERSION} \
-        > ~/install.python3-pip.log 2>&1; \
-    cp -fnRT /var/cache/apt/archive/ ~/.cache/build.apt-get
-
-# Install watchman
-RUN \
-    --mount=type=cache,target=/root/.cache/build.apt-get \
-    cp -nRT ~/.cache/build.apt-get /var/cache/apt/archive/; \
-    export DEBIAN_FRONTEND=noninteractive; \
-    apt-get install --no-install-recommends -y \
         watchman=${WATCHMAN_VERSION} \
-        > ~/install.watchman.log 2>&1; \
+        2>&1 | tee ~/install.dependencies.log; \
+    curl https://cli-assets.heroku.com/install.sh | sh; \
+    curl -o /bin/hadolint \
+        https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64; \
+    chmod +x /bin/hadolint; \
     cp -fnRT /var/cache/apt/archive/ ~/.cache/build.apt-get
 
 USER vscode
@@ -70,10 +68,10 @@ RUN \
     cp -nRT ~/.cache/build.npm ~/.npm; \
     curl -o- \
         https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh \
-        | bash > ~/install.nvm.log 2>&1; \
+        | bash 2>&1 | tee ~/install.nvm.log; \
     export NVM_DIR="$HOME/.nvm"; \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
-    npm install -g yarn@${YARN_VERSION} > ~/install.yarn.log 2>&1; \
+    npm install -g yarn@${YARN_VERSION} 2>&1 | tee ~/install.yarn.log; \
     cp -fnRT ~/.nvm ~/.cache/build.nvm; \
     cp -fnRT ~/.npm ~/.cache/build.npm
 
@@ -82,7 +80,7 @@ RUN \
     --mount=type=cache,target=/home/vscode/.cache/build.pip,uid=1000,gid=1000 \
     cp -nRT ~/.cache/build.pip ~/.cache/pip; \
     python3 -m pip install pre-commit==${PRE_COMMIT_VERSION} \
-        > ~/install.pip.pre-commit.log 2>&1; \
+        2>&1 | tee ~/install.pip.pre-commit.log; \
     cp -fnRT ~/.cache/pip ~/.cache/build.pip
 
 WORKDIR /app
@@ -96,7 +94,7 @@ RUN \
     --mount=type=cache,target=/home/vscode/.cache/build.pre-commit,uid=1000,gid=1000 \
     cp -nRT ~/.cache/build.pre-commit ~/.cache/pre-commit; \
     git init && ~/.local/bin/pre-commit install-hooks \
-        > ~/install.pre-commit.hooks.log 2>&1; \
+        2>&1 | tee ~/install.pre-commit.hooks.log; \
     cp -fnRT ~/.cache/pre-commit ~/.cache/build.pre-commit
 
 COPY \
@@ -106,9 +104,9 @@ COPY \
 
 # Install node dependencies
 RUN \
-    --mount=type=cache,target=/home/vscode/.cache/build.yarn,uid=1000,gid=1000 \
-    cp -nRT ~/.cache/build.yarn ~/.cache/yarn; \
+    --mount=type=cache,target=/home/vscode/.cache/build.node_modules,uid=1000,gid=1000 \
+    cp -nRT ~/.cache/build.node_modules node_modules; \
     export NVM_DIR="$HOME/.nvm"; \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
-    yarn install > ~/install.node.dependencies.log 2>&1; \
-    cp -fnRT ~/.cache/yarn ~/.cache/build.yarn
+    yarn install 2>&1 | tee ~/install.yarn.log; \
+    cp -fnRT node_modules ~/.cache/build.node_modules
