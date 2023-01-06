@@ -22,6 +22,7 @@ services:
         PRE_COMMIT_VERSION: ${DEV_CONTAINER_PRE_COMMIT_VERSION:-2.21.0}
         PYTHON3_PIP_VERSION: ${DEV_CONTAINER_PYTHON3_PIP_VERSION:-22.0.2+dfsg-1}
         WATCHMAN_VERSION: ${DEV_CONTAINER_WATCHMAN_VERSION:-4.9.0-6build2}
+        YARN_VERSION: ${DEV_CONTAINER_YARN_VERSION:-1.22.19}
       dockerfile: .devcontainer/Dockerfile
     command: sleep infinity
     volumes:
