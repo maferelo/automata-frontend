@@ -45,6 +45,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: /home/circleci/project/workspace
+      - run: ls -al 
       - run: 
           name: Load Docker image
           command: docker load -i workspace/project-web.tat
