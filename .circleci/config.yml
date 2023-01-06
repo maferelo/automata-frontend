@@ -26,11 +26,12 @@ jobs:
     executor: ubuntu-executor
     steps:
       - checkout
-      - run: ls -al
+      - run: pwd
       - run: mkdir -p workspace
       - run: 
           name: Build Docker image
           command: docker compose build
+      - run: docker images 
       - run: docker save -o workspace/web.tar web
       - persist_to_workspace:
           root: workspace
