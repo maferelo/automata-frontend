@@ -26,13 +26,12 @@ jobs:
     executor: ubuntu-executor
     steps:
       - checkout
-      - run: pwd
-      - run: mkdir -p workspace
       - run: 
           name: Build Docker image
           command: docker compose build
-      - run: docker images 
-      - run: docker save -o workspace/project-web.tar project-web
+      - run: 
+          name: Save image
+          command: docker save -o workspace/project-web.tar project-web
       - persist_to_workspace:
           root: workspace
           paths:
@@ -40,8 +39,9 @@ jobs:
   pre-commit:
     executor: ubuntu-executor
     steps:
-      - run: mkdir -p workspace
       - checkout
+      - attach_workspace:
+          at: /home/circleci/project/workspace
       - run: 
           name: Build Docker image
           command: docker compose build
