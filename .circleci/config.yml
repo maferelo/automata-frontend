@@ -20,7 +20,6 @@ executors:
     machine:
       image: ubuntu-2204:<< pipeline.parameters.ubuntu-image-tag >>
       docker_layer_caching: true
-    working_directory: /tmp
 
 jobs:
   build:
