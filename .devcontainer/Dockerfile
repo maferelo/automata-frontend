@@ -112,3 +112,5 @@ RUN \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
     yarn install 2>&1 | tee ~/install.yarn.log; \
     cp -fnRT node_modules ~/.cache/build.node_modules
+
+COPY . .
