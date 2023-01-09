@@ -3,6 +3,7 @@ x-app: &default-app
   build:
     dockerfile: Dockerfile
   restart: ${DOCKER_RESTART_POLICY:-unless-stopped}
+  tty: true
 
 version: '3.8'
 services:
