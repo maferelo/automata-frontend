@@ -20,7 +20,7 @@ repos:
     hooks:
       - id: eslint
         name: eslint
-        entry: yarn eslint
+        entry: yarn run eslint
         language: node
         types: [javascript]
   - repo: https://github.com/lyz-code/yamlfix/
