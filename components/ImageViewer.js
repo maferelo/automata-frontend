@@ -1,5 +1,10 @@
 import { Image, StyleSheet } from "react-native";
 
+/**
+ * Button component.
+ * @param {string} placeholderImageSource Url image source.
+ * @return {Image} Image component.
+ */
 export default function ImageViewer({ placeholderImageSource }) {
   return <Image source={placeholderImageSource} style={styles.image} />;
 }

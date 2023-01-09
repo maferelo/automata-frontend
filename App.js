@@ -6,6 +6,10 @@ import ImageViewer from "./components/ImageViewer";
 
 const PlaceholderImage = require("./assets/images/background-image.png");
 
+/**
+ * Main app component.
+ * @return {void}
+ */
 export default function App() {
   return (
     <View style={styles.container}>

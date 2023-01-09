@@ -2,6 +2,12 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import PropTypes from 'prop-types';
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 
+/**
+ * Button component.
+ * @param {string} label Displayer text.
+ * @param {string} theme Type of styles to choose.
+ * @return {Object} Button component.
+ */
 export default function Button({ label, theme }) {
   if (theme === "primary") {
     return (
