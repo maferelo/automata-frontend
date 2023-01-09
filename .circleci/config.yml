@@ -38,7 +38,7 @@ jobs:
           name: Run pre-commit
           command: >-
             docker compose run web /bin/bash
-            -c "sudo chown -R vscode:vscode . && ~/.local/bin/pre-commit run -a"
+            -ic "sudo chown -R vscode:vscode . && ~/.local/bin/pre-commit run -a"
   test:
     executor: ubuntu-executor
     steps:
