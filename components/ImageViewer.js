@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Image, StyleSheet } from "react-native";
 
 /**
@@ -10,7 +11,7 @@ export default function ImageViewer({ placeholderImageSource }) {
 }
 
 ImageViewer.propTypes = {
-  placeholderImageSource: Image.propTypes.source.isRequired,
+  placeholderImageSource: PropTypes.number.isRequired,
 };
 
 const styles = StyleSheet.create({
