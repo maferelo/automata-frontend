@@ -1,6 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import PropTypes from 'prop-types';
-import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 /**
  * Button component.
@@ -8,7 +8,7 @@ import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
  * @param {string} theme Type of styles to choose.
  * @return {Object} Button component.
  */
-export default function Button({ label, theme }) {
+export default function Button({ label, theme, onPress }) {
   if (theme === "primary") {
     return (
       <View
@@ -19,7 +19,7 @@ export default function Button({ label, theme }) {
       >
         <Pressable
           style={[styles.button, { backgroundColor: "#fff" }]}
-          onPress={() => Alert.alert("You pressed a button.")}
+          onPress={onPress}
         >
           <FontAwesome
             name="picture-o"
@@ -39,7 +39,7 @@ export default function Button({ label, theme }) {
     <View style={styles.buttonContainer}>
       <Pressable
         style={styles.button}
-        onPress={() => Alert.alert("You pressed a button.")}
+        onPress={onPress}
       >
         <Text style={styles.buttonLabel}>{label}</Text>
       </Pressable>
@@ -49,7 +49,8 @@ export default function Button({ label, theme }) {
 
 Button.propTypes = {
   label: PropTypes.string,
-  theme: PropTypes.oneOf(['primary'])
+  theme: PropTypes.oneOf(['primary']),
+  onPress: PropTypes.func
 }
 
 const styles = StyleSheet.create({
