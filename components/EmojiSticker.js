@@ -4,7 +4,7 @@ import { Image, View } from 'react-native';
 /**
  * EmojiSticker component.
  * @param {number} imageSize In pixels.
- * @param {string} stickerSource Url sticker source.
+ * @param {number} stickerSource Url sticker source.
  * @return {EmojiSticker} EmojiSticker component.
  */
 export default function EmojiSticker({ imageSize, stickerSource }) {
@@ -21,5 +21,5 @@ export default function EmojiSticker({ imageSize, stickerSource }) {
 
 EmojiSticker.propTypes = {
     imageSize: PropTypes.number.isRequired,
-    stickerSource: PropTypes.string.isRequired,
+    stickerSource: PropTypes.number.isRequired,
 }
