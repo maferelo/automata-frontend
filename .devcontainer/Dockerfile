@@ -29,7 +29,7 @@ RUN \
     mkdir -p ~/.cache
 
 # Cache is loaded and updated in each RUN command because inline buildkit cache
-# is temporary and available only on build
+# is temporary and removed after creation
 # Buildkit reference:
 # https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/reference.md
 
@@ -110,7 +110,11 @@ RUN \
     cp -nRT ~/.cache/build.node_modules node_modules; \
     export NVM_DIR="$HOME/.nvm"; \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
-    yarn install 2>&1 | tee ~/install.yarn.log; \
+    yarn install \
+        --frozen-lockfile \
+        --non-interactive \
+        --verbose \
+    2>&1 | tee ~/install.yarn.log; \
     cp -fnRT node_modules ~/.cache/build.node_modules
 
 COPY . .
