@@ -48,7 +48,7 @@
     }
   },
   "dockerComposeFile": "../docker-compose.yml",
-  "postCreateCommand": "git config --global --add safe.directory /app",
+  "postCreateCommand": "/app/.devcontainer/post_create.sh",
   "service": "web",
   "workspaceFolder": "/app"
 }
