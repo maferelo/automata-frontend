@@ -46,11 +46,11 @@ RUN \
     cp -nRT ~/.cache/build.apt-get /var/cache/apt/archive/; \
     export DEBIAN_FRONTEND=noninteractive; \
     apt-get install --no-install-recommends -y \
-        python3-pip=${PYTHON3_PIP_VERSION} \
-        watchman=${WATCHMAN_VERSION} \
-        2>&1 | tee ~/install.dependencies.log; \
+    python3-pip=${PYTHON3_PIP_VERSION} \
+    watchman=${WATCHMAN_VERSION} \
+    2>&1 | tee ~/install.dependencies.log; \
     curl -o /bin/hadolint \
-        https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64; \
+    https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64; \
     chmod +x /bin/hadolint; \
     cp -fnRT /var/cache/apt/archive/ ~/.cache/build.apt-get
 
@@ -58,8 +58,8 @@ USER vscode
 
 RUN \
     mkdir -p \
-        ~/.cache \
-        ~/.vscode-server/extensions \
+    ~/.cache \
+    ~/.vscode-server/extensions \
     ;
 # Install nvm
 RUN \
@@ -68,8 +68,8 @@ RUN \
     cp -nRT ~/.cache/build.nvm ~/.nvm; \
     cp -nRT ~/.cache/build.npm ~/.npm; \
     curl -o- \
-        https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh \
-        | bash 2>&1 | tee ~/install.nvm.log; \
+    https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh \
+    | bash 2>&1 | tee ~/install.nvm.log; \
     export NVM_DIR="$HOME/.nvm"; \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
     npm install -g yarn@${YARN_VERSION} 2>&1 | tee ~/install.yarn.log; \
@@ -81,7 +81,7 @@ RUN \
     --mount=type=cache,target=/home/vscode/.cache/build.pip,uid=1000,gid=1000 \
     cp -nRT ~/.cache/build.pip ~/.cache/pip; \
     python3 -m pip install pre-commit==${PRE_COMMIT_VERSION} \
-        2>&1 | tee ~/install.pip.pre-commit.log; \
+    2>&1 | tee ~/install.pip.pre-commit.log; \
     cp -fnRT ~/.cache/pip ~/.cache/build.pip
 
 WORKDIR /app
@@ -95,7 +95,7 @@ RUN \
     --mount=type=cache,target=/home/vscode/.cache/build.pre-commit,uid=1000,gid=1000 \
     cp -nRT ~/.cache/build.pre-commit ~/.cache/pre-commit; \
     git init && ~/.local/bin/pre-commit install-hooks \
-        2>&1 | tee ~/install.pre-commit.hooks.log; \
+    2>&1 | tee ~/install.pre-commit.hooks.log; \
     cp -fnRT ~/.cache/pre-commit ~/.cache/build.pre-commit
 
 COPY \
@@ -110,9 +110,9 @@ RUN \
     export NVM_DIR="$HOME/.nvm"; \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
     yarn install \
-        --frozen-lockfile \
-        --non-interactive \
-        --verbose \
+    --frozen-lockfile \
+    --non-interactive \
+    --verbose \
     2>&1 | tee ~/install.yarn.log; \
     cp -fnRT node_modules ~/.cache/build.node_modules
 

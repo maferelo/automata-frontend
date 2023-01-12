@@ -48,6 +48,7 @@
     }
   },
   "dockerComposeFile": "../docker-compose.yml",
+  "postCreateCommand": "git config --global --add safe.directory /app",
   "service": "web",
   "workspaceFolder": "/app"
 }
