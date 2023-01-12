@@ -59,7 +59,7 @@ yarn expo install
 Adding dependencies
 
 ```bash
-yarn expo -- install -- <package-name> --save-dev --save-exact
+yarn expo -- install <package-name> -- --save-dev --save-exact
 ```
 
 Updating dependencies
