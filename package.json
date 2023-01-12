@@ -13,6 +13,7 @@
     "@babel/plugin-proposal-export-namespace-from": "7.18.9",
     "@expo/vector-icons": "13.0.0",
     "@expo/webpack-config": "0.17.4",
+    "dom-to-image": "2.6.0",
     "expo": "47.0.13",
     "expo-image-picker": "14.0.2",
     "expo-media-library": "15.0.0",
