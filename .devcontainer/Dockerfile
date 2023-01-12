@@ -49,7 +49,6 @@ RUN \
         python3-pip=${PYTHON3_PIP_VERSION} \
         watchman=${WATCHMAN_VERSION} \
         2>&1 | tee ~/install.dependencies.log; \
-    curl https://cli-assets.heroku.com/install.sh | sh; \
     curl -o /bin/hadolint \
         https://github.com/hadolint/hadolint/releases/download/v${HADOLINT_VERSION}/hadolint-Linux-x86_64; \
     chmod +x /bin/hadolint; \
