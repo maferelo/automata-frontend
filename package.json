@@ -9,7 +9,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@babel/core": "7.20.12",
+    "@babel/plugin-proposal-export-namespace-from": "7.18.9",
     "@expo/vector-icons": "13.0.0",
+    "@expo/webpack-config": "0.17.4",
     "dom-to-image": "2.6.0",
     "expo": "47.0.13",
     "expo-image-picker": "14.0.2",
@@ -21,19 +24,12 @@
     "react-native-gesture-handler": "2.8.0",
     "react-native-reanimated": "2.12.0",
     "react-native-view-shot": "3.4.0",
-    "react-native-web": "0.18.9"
+    "react-native-web": "0.18.10"
   },
   "devDependencies": {
-    "@babel/core": "7.20.12",
     "@babel/eslint-parser": "7.19.1",
-    "@babel/plugin-proposal-export-namespace-from": "7.18.9",
-    "@babel/preset-env": "7.20.2",
-    "@emotion/core": "10.0.27",
     "@expo/ngrok": "4.1.0",
-    "@expo/webpack-config": "0.17.2",
     "@typescript-eslint/parser": "5.48.1",
-    "babel-core": "6.26.3",
-    "babel-loader": "8.3.0",
     "eslint": "8.31.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "8.6.0",
@@ -43,8 +39,7 @@
     "jest-expo": "47.0.1",
     "prettier": "2.8.2",
     "react-devtools": "4.27.1",
-    "typescript": "4.9.4",
-    "webpack": "5.75.0"
+    "typescript": "4.9.4"
   },
   "private": true,
   "repository": "https://github.com/maferelo/automata-frontend.git",
