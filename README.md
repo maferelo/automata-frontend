@@ -39,7 +39,7 @@ We use [remote containers](https://code.visualstudio.com/docs/remote/containers-
 Inside the container run:
 
 ```bash
-yarn expo start --tunnel
+yarn start
 ```
 
 ### Linting
@@ -53,7 +53,7 @@ pre-commit run -a
 Use the package manager [poetry](https://python-poetry.org/) to install requirements
 
 ```bash
-yarn expo install
+yarn expo -- install
 ```
 
 Adding dependencies
