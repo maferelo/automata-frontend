@@ -15,7 +15,7 @@ import EmojiSticker from "./app/components/EmojiSticker";
 import IconButton from './app/components/IconButton';
 import ImageViewer from "./app/components/ImageViewer";
 
-const PlaceholderImage = require("./assets/images/background-image.png");
+const PlaceholderImage = require("./app/images/background-image.png");
 
 /**
  * Main app component.
@@ -47,7 +47,7 @@ export default function App() {
           Alert.alert('Saved!');
         }
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     } else {
       domtoimage
@@ -63,7 +63,7 @@ export default function App() {
           link.click();
         })
         .catch(e => {
-          console.log(e);
+          // console.log(e);
         });
     }
   };
