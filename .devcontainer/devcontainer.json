@@ -24,6 +24,8 @@
         "ivangabriele.vscode-heroku",
         "ms-azuretools.vscode-docker",
         "msjsdiag.vscode-react-native",
+        "naumovs.color-highlight",
+        "oderwat.indent-rainbow",
         "pkosta2005.heroku-command",
         "rvest.vs-code-prettier-eslint",
         "steoates.autoimport",

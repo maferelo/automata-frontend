@@ -7,6 +7,7 @@ import { Alert, Platform, StyleSheet, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { captureRef } from 'react-native-view-shot';
 
+import Box from "./app/components/Box";
 import Button from "./app/components/Button";
 import CircleButton from './app/components/CircleButton';
 import EmojiList from './app/components/EmojiList';
@@ -96,6 +97,7 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={styles.container}>
+      <Box />
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <View ref={imageRef} collapsable={false}>
