@@ -13,14 +13,17 @@ import CircleButton from './app/components/CircleButton';
 import EmojiList from './app/components/EmojiList';
 import EmojiPicker from "./app/components/EmojiPicker";
 import EmojiSticker from "./app/components/EmojiSticker";
+import FlexBox from "./app/components/FlexBox";
 import IconButton from './app/components/IconButton';
 import ImageViewer from "./app/components/ImageViewer";
+import TicTacToc from "./app/components/TicTacToc";
+import GlobalStyle from './app/globals/globalStyle';
 
 const PlaceholderImage = require("./app/images/background-image.png");
 
 /**
  * Main app component.
- * @return {void}
+ * @return {Object} Main app component.
  */
 export default function App() {
   const [status, requestPermission] = MediaLibrary.usePermissions();
@@ -97,7 +100,10 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={styles.container}>
+      <FlexBox />
+      <GlobalStyle />
       <Box />
+      <TicTacToc />
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <View ref={imageRef} collapsable={false}>
