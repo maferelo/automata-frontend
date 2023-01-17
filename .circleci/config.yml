@@ -13,24 +13,10 @@ executors:
       docker_layer_caching: true
 
 jobs:
-  build:
-    executor: ubuntu-executor
-    steps:
-      - run:
-          name: Create workspace directory
-          command: mkdir -p workspace
-      - run:
-          name: Save workspace files
-          command: touch workspace/project-web.tar
-      - persist_to_workspace:
-          root: workspace
-          paths: [project-web.tar]
   pre-commit:
     executor: ubuntu-executor
     steps:
       - checkout
-      - attach_workspace:
-          at: ./workspace
       - run:
           name: Build Docker image
           command: docker compose build
@@ -43,8 +29,6 @@ jobs:
     executor: ubuntu-executor
     steps:
       - checkout
-      - attach_workspace:
-          at: ./workspace
       - run:
           name: Build Docker image
           command: docker compose build
@@ -56,10 +40,8 @@ jobs:
 workflows:
   lint-and-test:
     jobs:
-      - build:
-          context: [context]
       - pre-commit:
-          requires: [build]
+          context: [context]
       - test:
-          requires: [build]
+          context: [context]
 # VS Code Extension Version: 1.5.1
