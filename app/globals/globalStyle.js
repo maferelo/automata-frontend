@@ -1,3 +1,5 @@
+// flexbox reference: https://reactnative.dev/docs/layout-props
+// flexbox playground: https://yogalayout.com/playground/
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`

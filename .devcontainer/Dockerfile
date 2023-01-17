@@ -33,7 +33,7 @@ RUN \
 # Buildkit reference:
 # https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/reference.md
 
-# Update pat-get package lists
+# Update apt-get package lists
 RUN \
     --mount=type=cache,target=/root/.cache/build.update \
     cp -nRT ~/.cache/build.update /var/lib/apt/lists/; \
