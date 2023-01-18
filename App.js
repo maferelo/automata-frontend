@@ -17,7 +17,6 @@ import FlexBox from "./app/components/FlexBox";
 import IconButton from './app/components/IconButton';
 import ImageViewer from "./app/components/ImageViewer";
 import TicTacToc from "./app/components/TicTacToc";
-import GlobalStyle from './app/globals/globalStyle';
 
 const PlaceholderImage = require("./app/images/background-image.png");
 
@@ -101,7 +100,6 @@ export default function App() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <FlexBox />
-      <GlobalStyle />
       <Box />
       <TicTacToc />
       <View style={styles.container}>
@@ -124,8 +122,8 @@ export default function App() {
           </View>
         ) : (
           <View style={styles.footerContainer}>
-            <Button theme="primary" label="Choose a photo" onPress={pickImageAsync} />
-            <Button label="Use this photo" onPress={() => setShowAppOptions(true)} />
+            <Button title="" theme="primary" label="Choose a photo" onPress={pickImageAsync} />
+            <Button title="" label="Use this photo" onPress={() => setShowAppOptions(true)} />
           </View>
         )}
         <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>

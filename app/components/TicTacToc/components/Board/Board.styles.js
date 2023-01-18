@@ -1,13 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
-export const StatusDiv = styled.div`
+export const StatusDiv = styled.View`
     margin-bottom: 10px;
 `;
 
-export const BoardRowDiv = styled.div`
-    &:after {
-        clear: both;
-        content: "";
-        display: table;
-    }
+export const BoardRowDiv = styled.View`
+    flexDirection: row;
 `;

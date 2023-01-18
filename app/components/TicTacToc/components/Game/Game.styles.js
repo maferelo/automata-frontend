@@ -1,14 +1,14 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
-export const GameBoardDiv = styled.div`
+export const GameBoardDiv = styled.View`
 `;
 
-export const GameDiv = styled.div`
+export const GameDiv = styled.View`
     background-color: #fff;
     display: flex;
     flex-direction: row;
 `;
 
-export const GameInfoDiv = styled.div`
+export const GameInfoDiv = styled.View`
     margin-left: 20px;
 `;

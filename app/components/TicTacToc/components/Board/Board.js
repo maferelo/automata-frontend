@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useState } from 'react';
+import { Text, View } from 'react-native';
 import { calculateWinner } from '../Game/Game.utils';
 import Square from '../Square';
 import { BoardRowDiv, StatusDiv } from './Board.styles';
@@ -21,7 +22,7 @@ function Board() {
     };
 
     const renderSquare = (index) => {
-        return <Square onClick={() =>
+        return <Square onPress={() =>
             handleSquareClick(index)} value={squares[index]} />;
     };
 
@@ -31,8 +32,8 @@ function Board() {
         status = `Winner: ${winner}`;
 
     return (
-        <div>
-            <StatusDiv>{status}</StatusDiv>
+        <View>
+            <StatusDiv><Text>{status}</Text></StatusDiv>
             <BoardRowDiv>
                 {renderSquare(0)}
                 {renderSquare(1)}
@@ -48,12 +49,12 @@ function Board() {
                 {renderSquare(7)}
                 {renderSquare(8)}
             </BoardRowDiv>
-        </div>
+        </View>
     );
 }
 
 Board.prototype = {
-    onClick: PropTypes.func,
+    onPress: PropTypes.func,
 };
 
 export default Board;

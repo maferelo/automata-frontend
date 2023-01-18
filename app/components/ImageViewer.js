@@ -16,7 +16,7 @@ export default function ImageViewer({ placeholderImageSource, selectedImage }) {
 }
 
 ImageViewer.propTypes = {
-  placeholderImageSource: PropTypes.string.isRequired,
+  placeholderImageSource: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   selectedImage: PropTypes.string,
 };
 

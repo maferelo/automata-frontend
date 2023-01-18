@@ -1,24 +1,16 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
-export const Button = styled.button`
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
+export const SquareTouchableOpacity = styled.TouchableOpacity`
+    backgroundColor: #2c3e;
+    alignSelf: stretch;
     font-size: 24px;
     font-weight: bold;
     line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
+    height: 70px;
+    width: 70px;
     text-align: center;
-    width: 34px;
+`;
 
-    &:focus {
-        outline: none;
-    }
-
-    .kbd-navigation &:focus {
-        background: #ddd;
-    }
+export const ValueText = styled.Text`
+    color: #fff;
 `;

@@ -4,7 +4,7 @@ import { Alert } from "react-native";
 import { Button } from './Box.styles';
 
 
-const Box = () => <Button onClick={Alert.alert("Hola")}>hola</Button>;
+const Box = () => <Button title="" onClick={() => Alert.alert("Hola")}>hola</Button>;
 
 Box.prototype = {
     onClick: PropTypes.func,
