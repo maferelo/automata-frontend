@@ -41,7 +41,9 @@ workflows:
   lint-and-test:
     jobs:
       - pre-commit:
-          context: [context]
+          context:
+            - context
       - test:
-          context: [context]
+          context:
+            - context
 # VS Code Extension Version: 1.5.1
