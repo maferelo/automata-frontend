@@ -18,7 +18,6 @@
    - Color
    - Typography
 7. Prettier
-8. Storybook
-9. eslintrc config
-10. android simulator with docker
-11. jsdoc https://jsdoc.app/
+8. eslintrc config
+9. android simulator with docker
+10. jsdoc https://jsdoc.app/
