@@ -37,18 +37,18 @@ jobs:
           command: >-
             docker compose run web /bin/bash
             -ic "~/.nvm/versions/node/v18.2.0/bin/yarn test"
-    trial:
-      executor: ubuntu-executor
-      steps:
-        - checkout
-        - run:
-            name: Build Docker image
-            command: docker compose build
-        - run:
-            name: Run pre-commit
-            command: >-
-              docker compose run web /bin/bash
-              -ic "yarn test"
+  trial:
+    executor: ubuntu-executor
+    steps:
+      - checkout
+      - run:
+          name: Build Docker image
+          command: docker compose build
+      - run:
+          name: Run pre-commit
+          command: >-
+            docker compose run web /bin/bash
+            -ic "yarn test"
 workflows:
   lint-and-test:
     jobs:
