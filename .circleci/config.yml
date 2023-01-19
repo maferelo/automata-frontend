@@ -35,7 +35,7 @@ jobs:
       - run:
           name: Run pre-commit
           command: >-
-            docker compose exec -it --user=vscode web bash --login -c "yarn -v"
+            docker compose run -it --user=vscode web bash --login -c "yarn -v"
 workflows:
   lint-and-test:
     jobs:
