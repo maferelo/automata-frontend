@@ -35,6 +35,7 @@ services:
     ports:
       - 19000:19000
       - 19006:19006
+    user: vscode
     volumes:
       - .:/app:cache
       - /app/node_modules
