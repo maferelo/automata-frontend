@@ -60,5 +60,5 @@ workflows:
             - context
       - trial:
           context:
-              -context
+            - context
 # VS Code Extension Version: 1.5.1
