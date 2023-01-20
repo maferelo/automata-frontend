@@ -18,37 +18,26 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build Docker image
+          name: Build image
           command: docker compose build
       - run:
-          name: Run pre-commit
+          name: Run
           command: >-
-            docker compose run web /bin/bash
-            -ic "sudo chown -R vscode:vscode . && ~/.local/bin/pre-commit run -a"
+            docker compose run web bash -ic
+            "sudo chown -R vscode:vscode . && pre-commit run -a"
   test:
     executor: ubuntu-executor
+    parallelism: 4
     steps:
       - checkout
       - run:
-          name: Build Docker image
+          name: Build image
           command: docker compose build
       - run:
-          name: Run pre-commit
+          name: Run
           command: >-
-            docker compose run web /bin/bash
-            -ic "~/.nvm/versions/node/v18.2.0/bin/yarn test"
-  trial:
-    executor: ubuntu-executor
-    steps:
-      - checkout
-      - run:
-          name: Build Docker image
-          command: docker compose build
-      - run:
-          name: Run pre-commit
-          command: >-
-            docker compose run web /bin/bash
-            -ic "yarn test"
+            docker compose run web bash -ic
+            "sudo chown -R vscode:vscode . && yarn test"
 workflows:
   lint-and-test:
     jobs:
@@ -56,9 +45,6 @@ workflows:
           context:
             - context
       - test:
-          context:
-            - context
-      - trial:
           context:
             - context
 # VS Code Extension Version: 1.5.1
