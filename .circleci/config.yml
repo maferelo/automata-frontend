@@ -24,7 +24,7 @@ jobs:
           name: Run pre-commit
           command: >-
             docker compose run web /bin/bash -ic 
-              "sudo chown -R vscode:vscode . && pre-commit run -a"
+            "sudo chown -R vscode:vscode . && pre-commit run -a"
   test:
     executor: ubuntu-executor
     steps:
@@ -36,7 +36,7 @@ jobs:
           name: Run pre-commit
           command: >-
             docker compose run web /bin/bash -ic 
-              "yarn test"
+            "yarn test"
 workflows:
   lint-and-test:
     jobs:
