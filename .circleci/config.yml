@@ -35,8 +35,7 @@ jobs:
       - run:
           name: Run pre-commit
           command: >-
-            docker compose run web /bin/bash
-            -ic "~/.nvm/versions/node/v18.2.0/bin/yarn test"
+            docker compose run web /bin/bash -ic "yarn test"
   trial:
     executor: ubuntu-executor
     steps:
@@ -47,8 +46,7 @@ jobs:
       - run:
           name: Run pre-commit
           command: >-
-            docker compose run web /bin/bash
-            -ic "yarn test"
+            docker compose run web /bin/bash -ic "pre-commit run -a"
 workflows:
   lint-and-test:
     jobs:
