@@ -27,6 +27,7 @@ jobs:
             "sudo chown -R vscode:vscode . && pre-commit run -a"
   test:
     executor: ubuntu-executor
+    parallelism: 4
     steps:
       - checkout
       - run:
