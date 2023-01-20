@@ -46,7 +46,18 @@ jobs:
       - run:
           name: Run pre-commit
           command: >-
-            docker compose run web /bin/bash -ic "pre-commit run -a"
+            docker compose run -u vscode web /bin/bash -ic "pre-commit run -a"
+  trials:
+    executor: ubuntu-executor
+    steps:
+      - checkout
+      - run:
+          name: Build Docker image
+          command: docker compose build
+      - run:
+          name: Run pre-commit
+          command: >-
+            docker compose run -u vscode web /bin/bash -ic "sudo chown -R vscode:vscode . && pre-commit run -a"
 workflows:
   lint-and-test:
     jobs:
@@ -57,6 +68,9 @@ workflows:
           context:
             - context
       - trial:
+          context:
+              -context
+      - trials:
           context:
               -context
 # VS Code Extension Version: 1.5.1
