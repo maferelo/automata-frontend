@@ -18,10 +18,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build Docker image
+          name: Build image
           command: docker compose build
       - run:
-          name: Run pre-commit
+          name: Run
           command: >-
             docker compose run web bash -ic 
             "sudo chown -R vscode:vscode . && pre-commit run -a"
@@ -30,10 +30,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build Docker image
+          name: Build image
           command: docker compose build
       - run:
-          name: Run pre-commit
+          name: Run
           command: >-
             docker compose run web bash -ic 
             "yarn test"
