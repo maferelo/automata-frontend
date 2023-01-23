@@ -39,6 +39,6 @@ services:
       - .:/app:cache
       - /app/node_modules
       - ~/.bash_history:/home/vscode/.bash_history:cache
-      - extensions-cache:/home/vscode/.vscode-server/extensions:cache
+      - extensions-cache:/home/vscode/.vscode-server:cache
 volumes:
   extensions-cache:

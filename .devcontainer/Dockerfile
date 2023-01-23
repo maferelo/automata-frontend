@@ -59,7 +59,7 @@ USER vscode
 RUN \
     mkdir -p \
     ~/.cache \
-    ~/.vscode-server/extensions \
+    ~/.vscode-server \
     ;
 
 # Install nvm
