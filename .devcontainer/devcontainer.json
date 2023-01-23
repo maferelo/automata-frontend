@@ -51,6 +51,7 @@
   },
   "dockerComposeFile": "../docker-compose.yml",
   "postCreateCommand": "/app/.devcontainer/post_create.sh",
-  "service": "web",
+  "service": "app",
+  "waitFor": "postCreateCommand",
   "workspaceFolder": "/app"
 }

@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Run
           command: >-
-            docker compose run web bash -ic
+            docker compose run app bash -ic
             "sudo chown -R vscode:vscode . && pre-commit run -a"
   test:
     executor: ubuntu-executor
@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Run
           command: >-
-            docker compose run web bash -ic
+            docker compose run app bash -ic
             "sudo chown -R vscode:vscode . && yarn test"
 workflows:
   lint-and-test:

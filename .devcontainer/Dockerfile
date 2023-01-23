@@ -61,6 +61,7 @@ RUN \
     ~/.cache \
     ~/.vscode-server/extensions \
     ;
+
 # Install nvm
 RUN \
     --mount=type=cache,target=/home/vscode/.cache/build.nvm,uid=1000,gid=1000 \
