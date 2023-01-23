@@ -10,7 +10,7 @@ export default {
 };
 
 // 👇 We create a “template” of how args map to rendering
-const Template = (args) => <Cat {...args} />;
+const Template = (args: object) => <Cat {...args} />;
 
 // 👇 Each story then reuses that template
 export const Primary = Template.bind({});
