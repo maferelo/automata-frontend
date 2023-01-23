@@ -8,8 +8,12 @@ module.exports = {
     postcss: false,
   },
   framework: "@storybook/react",
+
   stories: [
-    "../**/*.stories.mdx",
-    "../**/*.stories.@(js|jsx|ts|tsx)",
-  ]
+    {
+      directory: '../app',
+      titlePrefix: 'MyComponents',
+      files: "**/*.stories.*",
+    },
+  ],
 };
