@@ -56,13 +56,13 @@ yarn expo -- install
 Adding dependencies
 
 ```bash
-yarn expo -- install <package-name> -- --save-dev --exact
+yarn expo -- install <package-name> -- --dev --exact
 ```
 
 Updating dependencies
 
 ```bash
-yarn expo -- install -- --check-files
+yarn install --check-files
 yarn outdated
 yarn upgrade --exact
 ```
