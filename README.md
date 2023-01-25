@@ -41,15 +41,13 @@ Inside the container run:
 yarn start
 ```
 
-### Linting
+### Linting [(pre-commit)](https://pre-commit.com/)
 
 ```bash
 pre-commit run -a
 ```
 
-### Dependencies
-
-Use the package manager [poetry](https://python-poetry.org/) to install requirements
+### Dependencies [(yarn)](https://classic.yarnpkg.com/lang/en/docs/)
 
 ```bash
 yarn expo -- install
@@ -69,7 +67,7 @@ yarn outdated
 yarn upgrade --exact
 ```
 
-### Tests
+### Tests [(jest)](https://jestjs.io/docs/getting-started)
 
 Unit and integration test
 
@@ -83,7 +81,7 @@ End to end testing
 
 ```
 
-### Documentation
+### Documentation [(storybook)](https://storybook.js.org/docs/ember/get-started/introduction/)
 
 ```bash
 yarn storybook
@@ -99,13 +97,12 @@ Using [Heroku](https://python-poetry.org/) Create staging and production apps
 
 ## References
 
-- [Project homepage](https://your.github.com/automata/)
-- [Repository](https://github.com/maferelo/automata/)
-- [Issue tracker](https://github.com/your/maferelo/issues)
+- [Project homepage](https://your.github.com/automata-frontend/)
+- [Repository](https://github.com/maferelo/automata-frontend/)
+- [Issue tracker](https://github.com/maferelo/automata-frontend/issues)
   - In case of sensitive bugs like security vulnerabilities, please contact
-    maferelo13@gmail.com directly instead of using issue tracker. We value your effort
+    us directly instead of using issue tracker. We value your effort
     to improve the security and privacy of this project!
 - Related projects
-  - Your other project
-  - Someone else's project
+  - [Automata Backend](https://github.com/maferelo/automata-backend)
   - [Awesome README](https://github.com/matiassingers/awesome*readme)
