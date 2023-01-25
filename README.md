@@ -3,8 +3,7 @@
 > Frontend using expo with React native
 > using best practices with reference notes.
 
-[![codecov](https://codecov.io/gh/maferelo/automata-backend/branch/develop/graph/badge.svg?token=GWW6DXXDZO)](https://codecov.io/gh/maferelo/automata-backend)
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/maferelo/automata-frontend/tree/develop.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/maferelo/automata-backend/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/maferelo/automata-frontend/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/maferelo/automata-frontend/tree/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/maferelo/automata-frontend.git)
 
@@ -75,13 +74,19 @@ yarn upgrade --exact
 Unit and integration test
 
 ```bash
-
+yarn test
 ```
 
 End to end testing
 
 ```bash
 
+```
+
+### Documentation
+
+```bash
+yarn storybook
 ```
 
 ## Deployments
