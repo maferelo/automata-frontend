@@ -73,6 +73,8 @@ Unit and integration test
 
 ```bash
 yarn test
+yarn test --watch # runs for uncommitted files
+yarn test --watchAll # runs all tests
 ```
 
 End to end testing
@@ -103,6 +105,7 @@ Using [Heroku](https://python-poetry.org/) Create staging and production apps
   - In case of sensitive bugs like security vulnerabilities, please contact
     us directly instead of using issue tracker. We value your effort
     to improve the security and privacy of this project!
+- [Security & Quality](https://github.com/maferelo/automata-frontend/security)
 - Related projects
   - [Automata Backend](https://github.com/maferelo/automata-backend)
   - [Awesome README](https://github.com/matiassingers/awesome*readme)
