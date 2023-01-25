@@ -4,7 +4,7 @@
 > using best practices with reference notes.
 
 [![codecov](https://codecov.io/gh/maferelo/automata-backend/branch/develop/graph/badge.svg?token=GWW6DXXDZO)](https://codecov.io/gh/maferelo/automata-backend)
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/maferelo/automata-backend/tree/develop.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/maferelo/automata-backend/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/maferelo/automata-frontend/tree/develop.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/maferelo/automata-backend/tree/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/maferelo/automata-frontend.git)
 
@@ -39,13 +39,13 @@ We use [remote containers](https://code.visualstudio.com/docs/remote/containers-
 Inside the container run:
 
 ```bash
-
+yarn start
 ```
 
 ### Linting
 
 ```bash
-
+pre-commit run -a
 ```
 
 ### Dependencies
@@ -53,10 +53,26 @@ Inside the container run:
 Use the package manager [poetry](https://python-poetry.org/) to install requirements
 
 ```bash
+yarn expo -- install
+```
 
+Adding dependencies
+
+```bash
+yarn expo -- install <package-name> -- --save-dev --exact
+```
+
+Updating dependencies
+
+```bash
+yarn expo -- install -- --check-files
+yarn outdated
+yarn upgrade --exact
 ```
 
 ### Tests
+
+Unit and integration test
 
 ```bash
 

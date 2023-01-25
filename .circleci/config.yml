@@ -1,0 +1,50 @@
+---
+# .circleci/.config.yml reference: https://circleci.com/docs/configuration-reference/
+# YAML 1.2 spec: https://yaml.org/spec/1.2-old/spec.html
+# Reusable config: https://circleci.com/docs/reusing-config/
+# Multiline comnads: https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines
+version: 2.1
+
+# Image: https://circleci.com/developer/machine/image/ubuntu-2204
+executors:
+  ubuntu-executor:
+    machine:
+      image: ubuntu-2204:2022.10.2
+      docker_layer_caching: true
+
+jobs:
+  pre-commit:
+    executor: ubuntu-executor
+    steps:
+      - checkout
+      - run:
+          name: Build image
+          command: docker compose build
+      - run:
+          name: Run
+          command: >-
+            docker compose run app bash -ic
+            "sudo chown -R vscode:vscode . && pre-commit run -a"
+  test:
+    executor: ubuntu-executor
+    parallelism: 4
+    steps:
+      - checkout
+      - run:
+          name: Build image
+          command: docker compose build
+      - run:
+          name: Run
+          command: >-
+            docker compose run app bash -ic
+            "sudo chown -R vscode:vscode . && yarn test"
+workflows:
+  lint-and-test:
+    jobs:
+      - pre-commit:
+          context:
+            - context
+      - test:
+          context:
+            - context
+# VS Code Extension Version: 1.5.1

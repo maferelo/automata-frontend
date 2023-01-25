@@ -1,29 +1,44 @@
 ---
+version: '3.8'
 x-app: &default-app
   build:
-    context: .
     dockerfile: Dockerfile
   restart: ${DOCKER_RESTART_POLICY:-unless-stopped}
+  tty: true
 
-version: "3.8"
 services:
-  web:
+  app:
     <<: *default-app
     build:
       args:
-        # Available tags: https://mcr.microsoft.com/v2/vscode/devcontainers/base/tags/list
+        # HADOLINT_VERSION: https://github.com/hadolint/hadolint/releases
+        # IMAGE_VARIANT: https://mcr.microsoft.com/v2/vscode/devcontainers/base/tags/list
+        # NODE_VERSION: https://github.com/nodesource/distributions/blob/master/README.md
+        # NVM_VERSION: https://github.com/nvm-sh/nvm
+        # PRE_COMMIT_VERSION: https://pypi.org/project/pre-commit/
+        # PYTHON3_PIP_VERSION: https://packages.ubuntu.com/search?keywords=python3-pip
+        # WATCHMAN_VERSION: https://packages.ubuntu.com/search?keywords=watchman
+        HADOLINT_VERSION: ${DEV_CONTAINER_HADOLINT_VERSION:-2.12.0}
         IMAGE_VARIANT: ${DEV_CONTAINER_IMAGE_VARIANT:-1.0.2-ubuntu-22.04}
-        # Node version: https://github.com/nodesource/distributions/blob/master/README.md
-        NODE_VERSION: ${DEV_CONTAINER_NODE:-18}
-        PRE_COMMIT_VERSION: ${DEV_CONTAINER_PRE_COMMIT_VERSION:-2.17.0-1}
+        NODE_VERSION: ${DEV_CONTAINER_NODE:-18.2.0}
+        NVM_VERSION: ${DEV_CONTAINER_NVM_VERSION:-0.39.3}
+        PRE_COMMIT_VERSION: ${DEV_CONTAINER_PRE_COMMIT_VERSION:-2.21.0}
+        PYTHON3_PIP_VERSION: ${DEV_CONTAINER_PYTHON3_PIP_VERSION:-22.0.2+dfsg-1}
         WATCHMAN_VERSION: ${DEV_CONTAINER_WATCHMAN_VERSION:-4.9.0-6build2}
+        YARN_VERSION: ${DEV_CONTAINER_YARN_VERSION:-1.22.19}
       dockerfile: .devcontainer/Dockerfile
     command: sleep infinity
+    environment:
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.11
+      - YAMLFIX_SEQUENCE_STYLE=block_style
+    ports:
+      - 19000:19000
+      - 19006:19006
     volumes:
       - .:/app:cache
+      - /app/node_modules
       - ~/.bash_history:/home/vscode/.bash_history:cache
-      - extensions-cache:/home/vscode/.vscode-server/extensions:cache
-
+      - extensions-cache:/home/vscode/.vscode-server:cache
 volumes:
-  home-cache:
   extensions-cache:
