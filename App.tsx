@@ -10,9 +10,9 @@ import HomeScreen from "./app/screens/HomeScreen";
 
 /**
  * Main app component.
- * @return {React.ComponentType} Main app component.
+ * @return Main app component.
  */
-export default function App() {
+export default function App(): JSX.Element {
   const [status, requestPermission] = MediaLibrary.usePermissions();
 
   if (status === null) {

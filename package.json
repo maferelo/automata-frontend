@@ -9,7 +9,10 @@
     "start": "NODE_OPTIONS=--openssl-legacy-provider expo start",
     "storybook-build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 7007",
-    "test": "jest"
+    "test": "jest --watch --coverage=false --changedSince=origin/main",
+    "testDebug": "jest -o --watch --coverage=false",
+    "testFinal": "jest",
+    "updateSnapshots": "jest -u --coverage=false"
   },
   "dependencies": {
     "@babel/plugin-proposal-export-namespace-from": "7.18.9",
@@ -74,6 +77,7 @@
     "@typescript-eslint/parser": "5.49.0",
     "babel-loader": "8.2.3",
     "babel-plugin-react-native-web": "0.18.11",
+    "babel-plugin-styled-components": "2.0.7",
     "eslint": "8.32.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "8.6.0",
@@ -92,6 +96,14 @@
     "webpack-dev-server": "3.11.3"
   },
   "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ],
     "preset": "jest-expo",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?@react-native|react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"

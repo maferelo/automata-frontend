@@ -12,6 +12,7 @@ module.exports = function (api) {
       "@babel/plugin-proposal-private-methods",
       "@babel/plugin-proposal-private-property-in-object",
       "react-native-reanimated/plugin",
+      "styled-components"
     ],
   };
 };

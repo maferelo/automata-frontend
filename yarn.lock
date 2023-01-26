@@ -5084,7 +5084,7 @@ babel-plugin-react-native-web@~0.18.2:
   resolved "https://registry.yarnpkg.com/babel-plugin-react-native-web/-/babel-plugin-react-native-web-0.18.10.tgz#028c349d1c4c929f86dc757a4e724d3e651d3424"
   integrity sha512-2UiwS6G7XKJvpo0X5OFkzGjHGFuNx9J+DgEG8TEmm+X5S0z6EB59W11RDEZghdKzsQzVbs1jB+2VHBuVgjMTiw==
 
-"babel-plugin-styled-components@>= 1.12.0":
+babel-plugin-styled-components@2.0.7, "babel-plugin-styled-components@>= 1.12.0":
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-2.0.7.tgz#c81ef34b713f9da2b7d3f5550df0d1e19e798086"
   integrity sha512-i7YhvPgVqRKfoQ66toiZ06jPNA3p6ierpfUuEWxNF+fV27Uv5gxBkf8KZLHUCc1nFA9j6+80pYoIpqCeyW3/bA==

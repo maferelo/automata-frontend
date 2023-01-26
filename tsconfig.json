@@ -1,3 +1,4 @@
+// Reference: https://www.typescriptlang.org/tsconfig
 {
   "compilerOptions": {
     "jsx": "react-jsx",
