@@ -1,11 +1,11 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import PropTypes from 'prop-types';
+import * as PropTypes from "prop-types";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 /**
  * Button component.
- * @param {string} label Displayer text.
- * @param {string} theme Type of styles to choose.
+ * @param label Displayer text.
+ * @param theme Type of styles to choose.
  * @return {Object} Button component.
  */
 export default function Button({ label, theme, onPress }) {
@@ -37,10 +37,7 @@ export default function Button({ label, theme, onPress }) {
 
   return (
     <View style={styles.buttonContainer}>
-      <Pressable
-        style={styles.button}
-        onPress={onPress}
-      >
+      <Pressable style={styles.button} onPress={onPress}>
         <Text style={styles.buttonLabel}>{label}</Text>
       </Pressable>
     </View>
@@ -49,9 +46,9 @@ export default function Button({ label, theme, onPress }) {
 
 Button.propTypes = {
   label: PropTypes.string,
-  theme: PropTypes.oneOf(['primary']),
-  onPress: PropTypes.func
-}
+  theme: PropTypes.oneOf(["primary"]),
+  onPress: PropTypes.func,
+};
 
 const styles = StyleSheet.create({
   buttonContainer: {
