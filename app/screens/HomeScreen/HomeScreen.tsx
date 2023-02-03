@@ -1,23 +1,23 @@
-import { Button, View } from "react-native";
+import { useState } from "react";
 
-type HomeScreenProps = {
-  navigation: any;
-};
+import { AddReminder } from "../../components/AddReminder";
+import { ContainerView } from "./HomeScreen.styles";
+import { HomeScreenProps } from "./HomeScreen.types";
 
 /**
  * HomeScreen component.
  * @param navigation Navigation object.
- * @return HomeScreen component.
  */
-export default function HomeScreen({
-  navigation,
-}: HomeScreenProps): JSX.Element {
+export function HomeScreen({ navigation }: HomeScreenProps): JSX.Element {
+  const [showAddReminderModal, setShowAddReminderModal] = useState(false);
+
+  function handleAddReminderOnPress(): void {
+    setShowAddReminderModal(true);
+  }
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Button
-        onPress={() => navigation.navigate("Notifications")}
-        title="Go to notifications"
-      />
-    </View>
+    <ContainerView>
+      <AddReminder handleAddReminderOnPress={handleAddReminderOnPress} />
+    </ContainerView>
   );
 }

@@ -6,7 +6,7 @@ import React from "react";
 import Box from "./app/components/Box";
 import FlexBox from "./app/components/FlexBox";
 import TicTacToc from "./app/components/TicTacToc";
-import HomeScreen from "./app/screens/HomeScreen";
+import { HomeScreen } from "./app/screens/HomeScreen";
 
 /**
  * Main app component.

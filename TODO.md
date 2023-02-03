@@ -23,6 +23,9 @@
 10. jsdoc https://jsdoc.app/
 11. Require signed commits
 12. Add security module to docs
+13. Pub sub patter using the events api
+14. Datadog
+15. WAI-ARIA, the Accessible Rich Internet Applications suite of web standards.
 
 ## Security
 
