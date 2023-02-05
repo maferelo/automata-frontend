@@ -1,7 +1,8 @@
-import { AddPressable, AddText, ContainerView } from "./AddReminder.styles";
+import { Button } from "../common/Button";
+import { ContainerView } from "./AddReminder.styles";
 import { AddReminderProps } from "./AddReminder.types";
 
-const TEXT = "Add Reminder";
+const TITLE = "Add Reminder";
 
 /**
  * AddReminder component.
@@ -13,9 +14,11 @@ export function AddReminder({
 }: AddReminderProps): JSX.Element {
   return (
     <ContainerView>
-      <AddPressable onPress={handleAddReminderOnPress}>
-        <AddText>{TEXT}</AddText>
-      </AddPressable>
+      <Button
+        onPress={handleAddReminderOnPress}
+        label={TITLE}
+        variant="primary"
+      />
     </ContainerView>
   );
 }

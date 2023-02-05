@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const ContainerView = styled.View`
-  background-color: green;
+  background-color: yellow;
   border: 1px black;
   bottom: 0;
   position: absolute;
@@ -14,6 +14,9 @@ export const AddPressable = styled.Pressable`
   height: 60px;
   justify-content: center;
   margin: 20px;
+  &.pressed {
+    background-color: green;
+  }
 `;
 
 export const AddText = styled.Text`
