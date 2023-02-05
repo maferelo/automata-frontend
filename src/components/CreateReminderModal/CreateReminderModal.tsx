@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Modal } from "react-native";
 
+import { AddReminderInput } from "../AddReminderInput";
 import { Button } from "../common/Button";
 import {
   ConfirmCancelView,
@@ -20,11 +22,14 @@ export function CreateReminderModal({
   handleConfirmOnPress,
   handleCancelOnPress,
 }: CreateReminderModalProps): JSX.Element {
+  const [value, onChangeText] = useState("");
   return (
     <Modal visible={isOpen} transparent={true}>
       <ContainerView>
         <ContentView>
-          <FormView></FormView>
+          <FormView>
+            <AddReminderInput onChange={(text) => onChangeText(text)} />
+          </FormView>
           <ConfirmCancelView>
             <Button
               onPress={handleConfirmOnPress}

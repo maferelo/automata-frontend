@@ -11,8 +11,8 @@ module.exports = {
 
   stories: [
     {
-      directory: '../app',
-      titlePrefix: 'MyComponents',
+      directory: "../src",
+      titlePrefix: "MyComponents",
       files: "**/*.stories.*",
     },
   ],
