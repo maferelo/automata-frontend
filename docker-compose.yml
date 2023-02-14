@@ -13,7 +13,7 @@ services:
       args:
         # HADOLINT_VERSION: https://github.com/hadolint/hadolint/releases
         # IMAGE_VARIANT: https://mcr.microsoft.com/v2/vscode/devcontainers/base/tags/list
-        # NODE_VERSION: https://github.com/nodesource/distributions/blob/master/README.md
+        # NODE_VERSION: https://nodejs.org/en/blog/release/
         # NVM_VERSION: https://github.com/nvm-sh/nvm
         # PRE_COMMIT_VERSION: https://pypi.org/project/pre-commit/
         # PYTHON3_PIP_VERSION: https://packages.ubuntu.com/search?keywords=python3-pip

@@ -37,9 +37,11 @@
         "editor.codeActionsOnSave": {
           "source.organizeImports": true
         },
+        "editor.detectIndentation": false,
         "editor.formatOnSave": true,
         "editor.formatOnSaveMode": "file",
         "editor.rulers": [88],
+        "editor.tabSize": 2,
         "workbench.colorCustomizations": {
           "titleBar.activeBackground": "#00FFFF",
           "titleBar.activeForeground": "#000000"
@@ -50,7 +52,7 @@
     }
   },
   "dockerComposeFile": "../docker-compose.yml",
-  "postCreateCommand": "/app/.devcontainer/post_create.sh",
+  "postCreateCommand": "sh /app/.devcontainer/post_create.sh",
   "service": "app",
   "waitFor": "postCreateCommand",
   "workspaceFolder": "/app"
