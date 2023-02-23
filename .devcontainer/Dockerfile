@@ -38,13 +38,14 @@ RUN \
     --mount=type=cache,target=/root/.cache/build.update \
     cp -nRT ~/.cache/build.update /var/lib/apt/lists/; \
     apt-get update 2>&1 | tee ~/update.log; \
-    apt-get install \
+    export DEBIAN_FRONTEND=noninteractive; \
+    apt-get install --no-install-recommends -y \
       libasound2 \
       libgbm-dev \
       libgconf-2-4 \
       libgtk-3-0 \
       libgtk2.0-0 \
-      libnotify-devv \
+      libnotify-dev \
       libnss3 \
       libxss1 \
       libxtst6 \
