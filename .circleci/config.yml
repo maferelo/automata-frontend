@@ -37,7 +37,7 @@ jobs:
           name: Run
           command: >-
             docker compose run app bash -ic
-            "sudo chown -R vscode:vscode . && yarn test"
+            "sudo chown -R vscode:vscode . && yarn test-final"
 workflows:
   lint-and-test:
     jobs:

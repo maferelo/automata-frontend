@@ -8,10 +8,10 @@
     "start": "NODE_OPTIONS=--openssl-legacy-provider expo start --dev-client",
     "storybook-build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 7007",
-    "test": "jest --watch --coverage=false --changedSince=origin/main",
-    "testDebug": "jest -o --watch --coverage=false",
-    "testFinal": "jest",
-    "updateSnapshots": "jest -u --coverage=false"
+    "test-dbug": "jest -o --watch --coverage=false",
+    "test-final": "jest",
+    "test-update": "jest -u --coverage=false",
+    "test": "jest --watch --coverage=false --changedSince=origin/main"
   },
   "dependencies": {
     "@babel/plugin-proposal-export-namespace-from": "7.18.9",
