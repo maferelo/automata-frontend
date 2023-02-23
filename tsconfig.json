@@ -1,8 +1,9 @@
 // Reference: https://www.typescriptlang.org/tsconfig
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "allowJs": true
+    "allowJs": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx"
   },
   "extends": "expo/tsconfig.base",
   "include": ["./app/**/*"]

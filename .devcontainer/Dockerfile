@@ -38,6 +38,19 @@ RUN \
     --mount=type=cache,target=/root/.cache/build.update \
     cp -nRT ~/.cache/build.update /var/lib/apt/lists/; \
     apt-get update 2>&1 | tee ~/update.log; \
+    apt-get install \
+      libasound2 \
+      libgbm-dev \
+      libgconf-2-4 \
+      libgtk-3-0 \
+      libgtk2.0-0 \
+      libnotify-devv \
+      libnss3 \
+      libxss1 \
+      libxtst6 \
+      xauth \
+      xvfb \
+      2>&1 | tee ~/install.dependencies.log; \
     cp -fnRT /var/lib/apt/lists/ ~/.cache/build.update
 
 # Install hadolint heroku python3-pip watchman
@@ -73,6 +86,9 @@ RUN \
     | bash 2>&1 | tee ~/install.nvm.log; \
     export NVM_DIR="$HOME/.nvm"; \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; \
+    nvm install ${NODE_VERSION} 2>&1 | tee ~/install.nvm.node.log; \
+    nvm alias default ${NODE_VERSION}; \
+    nvm use default; \
     npm install -g yarn@${YARN_VERSION} 2>&1 | tee ~/install.yarn.log; \
     cp -fnRT ~/.nvm ~/.cache/build.nvm; \
     cp -fnRT ~/.npm ~/.cache/build.npm
@@ -113,7 +129,6 @@ RUN \
     yarn install \
     --frozen-lockfile \
     --non-interactive \
-    --verbose \
     2>&1 | tee ~/install.yarn.log; \
     cp -fnRT node_modules ~/.cache/build.node_modules
 

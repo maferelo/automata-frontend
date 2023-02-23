@@ -64,7 +64,7 @@ yarn outdated
 yarn upgrade --exact
 ```
 
-### Tests [(jest)](https://jestjs.io/docs/getting-started)
+### Tests [jest](https://jestjs.io/docs/getting-started)
 
 Unit and integration test
 
@@ -74,13 +74,15 @@ yarn test --watch # runs for uncommitted files
 yarn test --watchAll # runs all tests
 ```
 
-End to end testing
+End to end testing with [cypress](https://www.cypress.io/)
+
+Follow: [Running GUI applications using Docker for Mac](https://sourabhbajaj.com/blog/2017/02/07/gui-applications-docker-mac/#run-xquartz)
 
 ```bash
-
+DISPLAY=${HOST_NAME}:0 cypress open
 ```
 
-### Documentation [(storybook)](https://storybook.js.org/docs/ember/get-started/introduction/)
+### Documentation [storybook](https://storybook.js.org/docs/ember/get-started/introduction/)
 
 ```bash
 yarn storybook
