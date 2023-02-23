@@ -9,6 +9,7 @@
     "eslint-config-google",
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:cypress/recommended",
     "prettier"
   ],
   "overrides": [],
@@ -16,7 +17,7 @@
   "parserOptions": {
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["prettier", "cypress", "react"],
   "rules": {
     "arrow-body-style": "off",
     "no-console": 2,

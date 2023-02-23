@@ -6,5 +6,6 @@
     "jsx": "react-jsx"
   },
   "extends": "expo/tsconfig.base",
-  "include": ["./app/**/*"]
+  "include": ["./app/**/*", "./cypress/**/*"],
+  "types": ["cypress", "react-native"]
 }
