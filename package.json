@@ -5,7 +5,7 @@
     "start-android": "NODE_OPTIONS=--openssl-legacy-provider expo start --android",
     "start-ios": "NODE_OPTIONS=--openssl-legacy-provider expo start --ios",
     "start-web": "NODE_OPTIONS=--openssl-legacy-provider expo start --web",
-    "start": "expo start --dev-client",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider expo start --dev-client",
     "storybook-build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 7007",
     "test": "jest --watch --coverage=false --changedSince=origin/main",
