@@ -78,6 +78,15 @@ End to end testing with [cypress](https://www.cypress.io/)
 
 Follow: [Running GUI applications using Docker for Mac](https://sourabhbajaj.com/blog/2017/02/07/gui-applications-docker-mac/#run-xquartz)
 
+On local to access the GUI
+
+```bash
+export DISPLAY=:0
+xhost +
+```
+
+On container
+
 ```bash
 cypress open
 ```
