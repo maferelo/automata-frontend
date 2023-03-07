@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "1.0.0",
   "scripts": {
-    "ci": "start-server-and-test serve http://localhost:19006 test",
+    "ci": "DISPLAY= start-server-and-test serve http://localhost:19006 test",
     "serve": "NODE_OPTIONS=--openssl-legacy-provider expo start --web",
     "start": "start-server-and-test serve http://localhost:19006 test-open",
     "storybook-build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
