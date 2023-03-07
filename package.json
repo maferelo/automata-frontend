@@ -8,8 +8,10 @@
     "start": "NODE_OPTIONS=--openssl-legacy-provider expo start --dev-client",
     "storybook-build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 7007",
+    "test-ci": "jest",
     "test-dbug": "jest -o --watch --coverage=false",
-    "test-final": "jest",
+    "test-e2e-ci": "cypress run",
+    "test-e2e": "cypress open",
     "test-update": "jest -u --coverage=false",
     "test": "jest --watch --coverage=false --changedSince=origin/main"
   },
