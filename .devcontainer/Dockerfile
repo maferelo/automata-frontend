@@ -40,18 +40,18 @@ RUN \
     apt-get update 2>&1 | tee ~/update.log; \
     export DEBIAN_FRONTEND=noninteractive; \
     apt-get install --no-install-recommends -y \
-      libasound2 \
-      libgbm-dev \
-      libgconf-2-4 \
-      libgtk-3-0 \
-      libgtk2.0-0 \
-      libnotify-dev \
-      libnss3 \
-      libxss1 \
-      libxtst6 \
-      xauth \
-      xvfb \
-      2>&1 | tee ~/install.dependencies.log; \
+        libasound2 \
+        libgbm-dev \
+        libgconf-2-4 \
+        libgtk-3-0 \
+        libgtk2.0-0 \
+        libnotify-dev \
+        libnss3 \
+        libxss1 \
+        libxtst6 \
+        xauth \
+        xvfb \
+        2>&1 | tee ~/install.dependencies.log; \
     cp -fnRT /var/lib/apt/lists/ ~/.cache/build.update
 
 # Install hadolint heroku python3-pip watchman
