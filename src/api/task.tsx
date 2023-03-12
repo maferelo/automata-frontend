@@ -1,6 +1,6 @@
-import axios from "axios";
 import { updateTasks } from "src/slices/task";
 import { Tasks } from "src/types";
+import { api } from "./index";
 
 const tasks: Tasks = {
   "1": { title: "Task 1", completed: false },
@@ -12,7 +12,7 @@ const tasks: Tasks = {
 
 export const getTasks = async (dispatch) => {
   dispatch(updateTasks(tasks));
-  const { data } = await axios
+  const { data } = await api
     .get("/api/tasks")
     .then((response) => {
       console.log("response", response);
