@@ -12,6 +12,18 @@ const tasks: Tasks = {
 
 export const getTasks = async (dispatch) => {
   dispatch(updateTasks(tasks));
-  const { data } = await axios.get("/api/tasks");
+  const { data } = await axios
+    .get("/api/tasks")
+    .then((response) => {
+      console.log("response", response);
+      return response;
+    })
+    .catch((error) => {
+      console.log("error", error);
+      return error;
+    })
+    .finally(() => {
+      console.log("finally");
+    });
   return data;
 };
