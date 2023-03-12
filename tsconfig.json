@@ -6,9 +6,10 @@
     "jsx": "react-jsx",
     "paths": {
       "src/*": ["src/*"]
-    }
+    },
+    "types": ["cypress", "react-native"]
   },
   "extends": "expo/tsconfig.base",
-  "include": ["src", "App.tsx", "app.json"],
-  "types": ["cypress", "react-native"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
