@@ -3,9 +3,12 @@
   "compilerOptions": {
     "allowJs": true,
     "baseUrl": ".",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "src/*": ["src/*"]
+    }
   },
   "extends": "expo/tsconfig.base",
-  "include": ["./app/**/*", "./cypress/**/*"],
+  "include": ["src", "App.tsx", "app.json"],
   "types": ["cypress", "react-native"]
 }
